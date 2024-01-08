@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "e306140f-2a42-45af-8807-bfefa1830ffa",
+		"name": "메라키",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23508252"
+	},
+	"item": [
+		{
+			"name": "환자 등록",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"김환자\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/patient/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"patient",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "의사 조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/doctor/?hospital_name=서울&name=홍길동",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"doctor",
+						""
+					],
+					"query": [
+						{
+							"key": "diagnosis_department",
+							"value": "신경과",
+							"disabled": true
+						},
+						{
+							"key": "hospital_name",
+							"value": "서울"
+						},
+						{
+							"key": "name",
+							"value": "홍길동"
+						},
+						{
+							"key": "desired_diagnosis_time",
+							"value": "2024-01-11 09:00",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "의사 등록",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\":\"이의사\",\n  \"hospital_name\":\"서울병원\",\n  \"diagnosis_department\": [\"정형외과\", \"내과\", \"일반의\"],\n  \"uninsured_services_department\": [\"다이어트약\"],\n  \"business_hours\":[\n    {\n      \"day\":\"mon\",\n      \"opening_time\":\"09:00\",\n      \"closing_time\":\"18:00\",\n      \"lunch_start\":\"12:00\",\n      \"lunch_end\":\"13:00\",\n      \"closed\":\"False\"\n    },\n    {\n      \"day\":\"tue\",\n      \"opening_time\":\"09:00\",\n      \"closing_time\":\"18:00\",\n      \"lunch_start\":\"12:00\",\n      \"lunch_end\":\"13:00\",\n      \"closed\":\"False\"\n    },\n    {\n      \"day\":\"wed\",\n      \"opening_time\":\"09:00\",\n      \"closing_time\":\"18:00\",\n      \"lunch_start\":\"12:00\",\n      \"lunch_end\":\"13:00\",\n      \"closed\":\"False\"\n    },\n    {\n      \"day\":\"thu\",\n      \"opening_time\":\"09:00\",\n      \"closing_time\":\"18:00\",\n      \"lunch_start\":\"12:00\",\n      \"lunch_end\":\"13:00\",\n      \"closed\":\"False\"\n    },\n    {\n      \"day\":\"fri\",\n      \"opening_time\":\"09:00\",\n      \"closing_time\":\"18:00\",\n      \"lunch_start\":\"12:00\",\n      \"lunch_end\":\"13:00\",\n      \"closed\":\"False\"\n    },\n    {\n      \"day\":\"sat\",\n      \"opening_time\":null,\n      \"closing_time\":null,\n      \"lunch_start\":null,\n      \"lunch_end\":null,\n      \"closed\":\"True\"\n    },\n    {\n      \"day\":\"sun\",\n      \"opening_time\":null,\n      \"closing_time\":null,\n      \"lunch_start\":null,\n      \"lunch_end\":null,\n      \"closed\":\"True\"\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/doctor/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"doctor",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "진료 요청",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\":\"1\",\n    \"doctor_id\":\"1\",\n    \"desired_diagnosis_time\":\"2024-01-12 11:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/diagnosis/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"diagnosis",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "진료 요청 검색",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/diagnosis/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"diagnosis",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "진료요청 수락",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/diagnosis/10/accept/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"diagnosis",
+						"10",
+						"accept",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
