@@ -10,7 +10,7 @@ class Doctor(models.Model):
         return self.name
 
     class Meta:
-        db_table = 'mydoctor'
+        db_table = 'doctor'
         verbose_name = '의사'
 
 
