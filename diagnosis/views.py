@@ -14,8 +14,7 @@ class DiagnosisRequestViewSet(viewsets.ModelViewSet):
     queryset = DiagnosisRequest.objects.all()
     serializer_class = DiagnosisRequestSerializer
 
-    def list(self, request, *args, **kwargs):
-        doctor_id = kwargs.get('doctor_id')
+    def list(self, request, doctor_id=None, *args, **kwargs):
         if doctor_id is not None:
             self.queryset = self.queryset.filter(doctor_id=doctor_id, is_accepted=False)
 
@@ -32,7 +31,7 @@ class DiagnosisRequestViewSet(viewsets.ModelViewSet):
         return Response(response.data, status=status.HTTP_200_OK)
 
     @action(detail=True, methods=['post'])
-    def accept(self, request):
+    def accept(self, request, pk=None):
         diagnosis_request = self.get_object()
         diagnosis_request.is_accepted = True
         diagnosis_request.save()
