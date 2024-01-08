@@ -15,6 +15,7 @@ class DiagnosisRequestViewSet(viewsets.ModelViewSet):
     serializer_class = DiagnosisRequestSerializer
 
     def list(self, request, doctor_id=None, *args, **kwargs):
+        doctor_id = request.query_params.get('doctor_id')
         if doctor_id is not None:
             self.queryset = self.queryset.filter(doctor_id=doctor_id, is_accepted=False)
 
