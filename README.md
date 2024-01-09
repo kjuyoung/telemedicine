@@ -19,6 +19,11 @@
 > 
 > python manage.py migrate
 
+- djangorestframework, mysqlclient 패키지 설치
+> pip install djangorestframework
+>
+> pip install mysqlclient
+
 ***
 ## 2. 데이터 입력 방법
 - _telemedicine.postman_collection.json_ 파일을 이용하여 아래 환자, 의사 데이터를 미리 DB에 입력
