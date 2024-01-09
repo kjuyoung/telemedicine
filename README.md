@@ -14,15 +14,15 @@
 - requirements.txt를 이용하여 패키지 설치
 > pip install -r requirements.txt
 
-- DB 생성 후 아래 명령어 통해 스키마 적용
-> python manage.py makemigrations
-> 
-> python manage.py migrate
-
 - djangorestframework, mysqlclient 패키지 설치
 > pip install djangorestframework
 >
 > pip install mysqlclient
+
+- DB 생성 후 아래 명령어 통해 스키마 적용
+> python manage.py makemigrations
+> 
+> python manage.py migrate
 
 ***
 ## 2. 데이터 입력 방법
