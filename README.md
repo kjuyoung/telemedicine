@@ -14,6 +14,11 @@
 - requirements.txt를 이용하여 패키지 설치
 > pip install -r requirements.txt
 
+- djangorestframework, mysqlclient 패키지 설치
+> pip install djangorestframework
+>
+> pip install mysqlclient
+
 - DB 생성 후 아래 명령어 통해 스키마 적용
 > python manage.py makemigrations
 > 
@@ -29,19 +34,22 @@
 
 ***
 ## 3. 각 로직 실행 방법
-### 3.1. 의사 조회
+### 3.1. 사전 데이터 세팅
+- 환자 등록 API, 의사 등록 API를 이용하여 환자 정보와 의사 정보를 DB에 미리 저장해놓아야 한다.
+
+### 3.2. 의사 조회
 - postman 설정파일의 의사 조회 API를 이용하여 로직 실행
 - 예시) 127.0.0.1:8000/doctor/?hospital_name=서울병원&name=김의사 
 
-### 3.2. 진료 요청
+### 3.3. 진료 요청
 - 진료 요청 API를 이용하여 진료 요청 생성 로직 실행
 - 예시) 127.0.0.1:8000/diagnosis/
 
-### 3.3. 진료 요청 검색
+### 3.4. 진료 요청 검색
 - 진료 요청 검색 API를 이용하여 진료 요청 생성 로직 실행
 - 예시) 127.0.0.1:8000/diagnosis/?doctor_id=1
 
-### 3.4. 진료 요청 수락
+### 3.5. 진료 요청 수락
 - 진료 요청 수락 API를 이용하여 진료 요청 생성 로직 실행
 - 예시) 127.0.0.1:8000/diagnosis/{진료요청id}/accept/
 
